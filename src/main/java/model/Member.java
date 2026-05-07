@@ -1,16 +1,13 @@
 package model;
 
-import model.enums.MembershipType;
-import model.enums.PlayerType;
-
 public class Member {
     private int id;
     private String name;
     private int age;
-    private MembershipType memberShipType;
+    private MembershipType membershipType;
     private PlayerType playerType;
 
-    public Member(int id, String name; int age, MembershipType membershipType, PlayerType playerType) {
+    public Member(int id, String name, int age, MembershipType membershipType, PlayerType playerType) {
 
         this.id = id;
         this.name = name;
@@ -21,23 +18,23 @@ public class Member {
 
     //Getters
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public MembershipType getMembershipType() {
-        return membershipType;
+        return this.membershipType;
     }
 
     public PlayerType getPlayerType() {
-        return playerType;
+        return this.playerType;
     }
 
     //Setters
