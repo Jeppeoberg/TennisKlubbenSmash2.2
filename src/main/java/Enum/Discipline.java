@@ -1,4 +1,4 @@
-package model;
+package Enum;
 
 public enum Discipline {
     SINGLE,

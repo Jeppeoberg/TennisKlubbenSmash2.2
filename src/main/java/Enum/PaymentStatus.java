@@ -1,4 +1,4 @@
-package model;
+package Enum;
 
 public enum PaymentStatus {
     PAID,
