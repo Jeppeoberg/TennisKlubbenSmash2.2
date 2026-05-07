@@ -6,16 +6,21 @@ public class CompetitionPlayer {
     private Coach coach;
     private Set<Discipline> disciplines;
 
-    public void addDiscipline(Discipline d) {
-
+    public CompetitionPlayer(Coach coach, Set<Discipline> disciplines) {
+        this.coach = coach;
+        this.disciplines = disciplines;
     }
 
-    public void removeDiscipline(Discipline d) {
+    public void addDiscipline(Set<Discipline> d, Discipline discipline) {
+        d.add(discipline);
+    }
 
+    public void removeDiscipline(Set<Discipline> d, Discipline discipline) {
+        d.remove(discipline);
     }
 
     public Set<Discipline> getDiscipline() {
-
+        return this.disciplines;
     }
 
     public Coach getCoach() {

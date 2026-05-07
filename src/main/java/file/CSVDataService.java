@@ -1,7 +1,7 @@
 package file;
 
 import model.Member;
-import model.Payment;
+import model.PaymentStatus;
 import model.TournamentResult;
 import model.TrainingResult;
 
@@ -14,7 +14,7 @@ public class CSVDataService {
     public ArrayList<Member> loadMembers() {
     }
 
-    public ArrayList<Payment> loadPayments() {
+    public ArrayList<PaymentStatus> loadPayments() {
     }
 
     public ArrayList<TrainingResult> loadTrainingResults() {
