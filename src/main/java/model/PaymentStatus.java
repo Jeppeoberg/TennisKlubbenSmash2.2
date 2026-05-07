@@ -1,4 +1,4 @@
-package Enum;
+package model;
 
 public class PaymentStatus {
     private int memberId;
