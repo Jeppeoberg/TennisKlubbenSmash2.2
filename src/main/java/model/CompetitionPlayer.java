@@ -3,11 +3,9 @@ package model;
 import java.util.Set;
 
 public class CompetitionPlayer {
-    private Coach coach;
     private Set<Discipline> disciplines;
 
-    public CompetitionPlayer(Coach coach, Set<Discipline> disciplines) {
-        this.coach = coach;
+    public CompetitionPlayer(Set<Discipline> disciplines) {
         this.disciplines = disciplines;
     }
 
@@ -23,11 +21,4 @@ public class CompetitionPlayer {
         return this.disciplines;
     }
 
-    public Coach getCoach() {
-        return this.coach;
-    }
-
-    public void setCoach(Coach c) {
-        this.coach = c;
-    }
 }
