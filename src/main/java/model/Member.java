@@ -17,7 +17,7 @@ public class Member {
     }
 
     //Getters
-    public int getId() {
+    public int getID() {
         return this.id;
     }
 
@@ -46,16 +46,16 @@ public class Member {
         this.age = age;
     }
 
-    public void setMembershipType(MembershipType membershipType){
+    public void setMembershipType(MembershipType membershipType) {
         this.membershipType = membershipType;
     }
 
-    public void setPlayerType(PlayerType playerType){
+    public void setPlayerType(PlayerType playerType) {
         this.playerType = playerType;
     }
 
     @Override
     public String toString() {
-        return "Member(" + "id=" + id + ", name=" + name +" " + "";
+        return "Member: ID = " + id + "\nName=" + name + "\nAge= " + age + "\nMembership Type = " + membershipType + "\nPlayer Type = " + playerType;
     }
 }
