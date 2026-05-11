@@ -1,5 +1,7 @@
 package model;
 
+import model.enums.Discipline;
+
 import java.util.Set;
 
 public class CompetitionPlayer {
