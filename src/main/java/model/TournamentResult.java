@@ -28,4 +28,9 @@ public class TournamentResult {
     public LocalDate getDate() {
         return this.date;
     }
+
+    @Override
+    public String toString() {
+        return memberId + " | " + tournamentName + " | " + ranking + " | " + matchResult;
+    }
 }
