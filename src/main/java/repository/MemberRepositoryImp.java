@@ -1,7 +1,7 @@
 package repository;
 
 import model.Member;
-import interfaces.MemberRepository;
+import repository.interfaces.MemberRepository;
 
 import java.util.List;
 import java.util.ArrayList;

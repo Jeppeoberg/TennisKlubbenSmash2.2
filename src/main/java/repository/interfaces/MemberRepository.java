@@ -1,4 +1,4 @@
-package interfaces;
+package repository.interfaces;
 
 import model.Member;
 import java.util.List;
