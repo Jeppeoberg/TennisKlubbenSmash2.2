@@ -1,6 +1,8 @@
 package ui;
 
+import file.MemberListFH;
 import model.Member;
+import model.enums.AgeType;
 import model.enums.MembershipType;
 import model.enums.PlayerType;
 import model.enums.Discipline;
@@ -13,7 +15,7 @@ import java.util.Scanner;
 public class Ui {
 
     private Scanner scanner = new Scanner(System.in);
-
+    private MemberListFH memberListFH = new MemberListFH();
     private MemberRepositoryImp memberRepository = new MemberRepositoryImp();
 
     public void start() {
@@ -58,6 +60,15 @@ public class Ui {
         System.out.println("Age:");
         int age = scanner.nextInt();
 
+        AgeType ageType;
+        if (age <19){
+            ageType=AgeType.JUNIOR;
+        } else if (age<66){
+            ageType=AgeType.SENIOR;
+        } else {
+            ageType=AgeType.OVER65;
+        }
+
         System.out.println("1. Active");
         System.out.println("2. Passive");
 
@@ -71,10 +82,9 @@ public class Ui {
             membershipType = MembershipType.PASSIVE;
         }
 
-        System.out.println("1. Junior Motionist");
-        System.out.println("2. Junior Competition");
-        System.out.println("3. Senior Motionist");
-        System.out.println("4. Senior Competition");
+        System.out.println("1. Motionist");
+        System.out.println("2. Competition");
+
 
         int playerChoice = scanner.nextInt();
 
@@ -83,28 +93,22 @@ public class Ui {
         switch (playerChoice) {
 
             case 1:
-                playerType = PlayerType.JUNIOR_MOTIONIST;
+                playerType = PlayerType.MOTIONIST;
                 break;
 
             case 2:
-                playerType = PlayerType.JUNIOR_COMPETITION;
-                break;
-
-            case 3:
-                playerType = PlayerType.SENIOR_MOTIONIST;
-                break;
-
-            case 4:
-                playerType = PlayerType.SENIOR_COMPETITION;
+                playerType = PlayerType.COMPETITION;
                 break;
 
             default:
                 System.out.println("Invalid Choice");
         }
 
+
+
         List<Discipline> discipline = new ArrayList<>();
 
-        if (playerType == PlayerType.JUNIOR_COMPETITION || playerType == PlayerType.SENIOR_COMPETITION) {
+        if (playerType == PlayerType.COMPETITION) {
 
             boolean addingDisciplines = true;
 
@@ -143,7 +147,7 @@ public class Ui {
             }
         }
 
-        Member member = new Member(name, age, membershipType, playerType, discipline);
+        Member member = new Member(0001,name, age, membershipType, playerType, ageType);
 
         memberRepository.addMember(member);
 
@@ -151,10 +155,13 @@ public class Ui {
     }
 
     public void showMembers() {
-
+        ArrayList members = memberListFH.readFile();
         System.out.println("\n....Members....");
 
         for (Member member : memberRepository.getAllMembers()) {
+            System.out.println(member);
+        }
+        for (Object member : members){
             System.out.println(member);
         }
     }

@@ -1,6 +1,6 @@
-0001,Linus,14,aktiv,junior,motionist
-0002,Sveinur,23,aktiv,senior,konkurrence
-0003,Jeppe,16,aktiv,junior,motionist
-0004,Rasmus,29,passiv,senior,konkurrence
-0005,Jarl,45,aktiv,senior,motionist
-0005,Søren,80,aktiv,senior,motionist
+0001,Linus,14,ACTIVE,JUNIOR,MOTIONIST
+0002,Sveinur,23,ACTIVE,SENIOR,COMPETITION
+0003,Jeppe,16,ACTIVE,JUNIOR,MOTIONIST
+0004,Rasmus,29,PASSIVE,SENIOR,COMPETITION
+0005,Jarl,45,ACTIVE,SENIOR,MOTIONIST
+0005,Søren,80,ACTIVE,OVER65,MOTIONIST
