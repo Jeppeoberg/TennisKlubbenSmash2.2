@@ -8,5 +8,5 @@ public class Main {
         Ui ui = new Ui();
 
         ui.start();
-    }
+    } //-
 }
