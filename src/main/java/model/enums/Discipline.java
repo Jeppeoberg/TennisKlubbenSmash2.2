@@ -1,7 +1,7 @@
-package model;
+package model.enums;
 
 public enum Discipline {
     SINGLE,
     DOUBLE,
-    MIX_DOUBLE
+    MIXED_DOUBLE,
 }
