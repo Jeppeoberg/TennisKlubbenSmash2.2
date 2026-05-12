@@ -17,9 +17,10 @@ public class Ui {
     private Scanner scanner = new Scanner(System.in);
     private MemberListFH memberListFH = new MemberListFH();
     private MemberRepositoryImp memberRepository = new MemberRepositoryImp();
+    private int memberID = 1;
 
     public void start() {
-
+        addMembersFromFile();
         boolean running = true;
 
         while (running) {
@@ -61,12 +62,12 @@ public class Ui {
         int age = scanner.nextInt();
 
         AgeType ageType;
-        if (age <19){
-            ageType=AgeType.JUNIOR;
-        } else if (age<66){
-            ageType=AgeType.SENIOR;
+        if (age < 19) {
+            ageType = AgeType.JUNIOR;
+        } else if (age < 66) {
+            ageType = AgeType.SENIOR;
         } else {
-            ageType=AgeType.OVER65;
+            ageType = AgeType.OVER65;
         }
 
         System.out.println("1. Active");
@@ -105,8 +106,7 @@ public class Ui {
         }
 
 
-
-        List<Discipline> discipline = new ArrayList<>();
+        Member member = new Member(memberID, name, age, membershipType, playerType, ageType);
 
         if (playerType == PlayerType.COMPETITION) {
 
@@ -125,15 +125,15 @@ public class Ui {
                 switch (disciplineChoice) {
 
                     case 1:
-                        discipline.add(Discipline.SINGLE);
+                        member.addDisciplines(Discipline.SINGLE);
                         break;
 
                     case 2:
-                        discipline.add(Discipline.DOUBLE);
+                        member.addDisciplines(Discipline.DOUBLE);
                         break;
 
                     case 3:
-                        discipline.add(Discipline.MIXED_DOUBLE);
+                        member.addDisciplines(Discipline.MIXED_DOUBLE);
                         break;
 
                     case 4:
@@ -147,23 +147,27 @@ public class Ui {
             }
         }
 
-        Member member = new Member(0001,name, age, membershipType, playerType, ageType);
-
         memberRepository.addMember(member);
+
 
         System.out.println("\nMember created!");
     }
 
+    public void addMembersFromFile() {
+        ArrayList<Member> members = memberListFH.readFile();
+        for (Member member : members) {
+            memberRepository.addMember(member);
+            memberID++;
+        }
+    }
+
     public void showMembers() {
-        ArrayList members = memberListFH.readFile();
         System.out.println("\n....Members....");
 
         for (Member member : memberRepository.getAllMembers()) {
             System.out.println(member);
         }
-        for (Object member : members){
-            System.out.println(member);
-        }
+
     }
 }
 
