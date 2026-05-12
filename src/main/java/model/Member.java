@@ -5,6 +5,7 @@ import model.enums.Discipline;
 import model.enums.MembershipType;
 import model.enums.PlayerType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
@@ -16,9 +17,9 @@ public class Member {
     private MembershipType membershipType;
     private PlayerType playerType;
     private AgeType ageType;
-    private List<Discipline> disciplines;
+    private ArrayList<Discipline> disciplines;
 
-    public Member(int memberId,String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
+    public Member(int memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
 
         this.memberId = memberId;
         this.name = name;
@@ -26,6 +27,11 @@ public class Member {
         this.membershipType = membershipType;
         this.playerType = playerType;
         this.ageType = ageType;
+        this.disciplines = new ArrayList<>();
+    }
+
+    public void addDisciplines(Discipline discipline){
+        this.disciplines.add(discipline);
     }
 
     public int getMemberId() {
@@ -54,7 +60,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " ";
+        return memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines;
     }
 
 }
