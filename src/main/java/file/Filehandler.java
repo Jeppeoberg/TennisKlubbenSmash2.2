@@ -3,7 +3,7 @@ package file;
 import java.util.ArrayList;
 
 public interface Filehandler {
-    void saveToFile();
+    String saveToFile();
     ArrayList readFile();
 
 }

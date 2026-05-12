@@ -36,8 +36,11 @@ public class MemberListFH implements Filehandler {
         return members;
     }
 
+    public writeToFile() {
+    }
+
     @Override
-    public void saveToFile() {
+    public String saveToFile() {
 
     }
 }
