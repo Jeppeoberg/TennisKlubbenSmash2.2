@@ -3,11 +3,18 @@ package model;
 import java.time.LocalDate;
 
 public class TournamentResult {
-    private String tournamentName;
     private int memberId;
-    private String matchResult;
+    private String tournamentName;
     private int ranking;
-    private LocalDate date;
+    private String matchResult;
+
+
+    public TournamentResult(int memberId, String tournamentName, int ranking, String matchResult){
+        this.memberId=memberId;
+        this.tournamentName=tournamentName;
+        this.ranking=ranking;
+        this.matchResult=matchResult;
+    }
 
     public String getTournamentName() {
         return this.tournamentName;
@@ -25,9 +32,7 @@ public class TournamentResult {
         return this.ranking;
     }
 
-    public LocalDate getDate() {
-        return this.date;
-    }
+
 
     @Override
     public String toString() {

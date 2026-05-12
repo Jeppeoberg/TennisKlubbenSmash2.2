@@ -13,7 +13,7 @@ public class MemberListFH implements FileReader {
 
     @Override
     public ArrayList readFile() {
-        ArrayList members= new ArrayList();
+        ArrayList<Member> members = new ArrayList<Member>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(FILE_NAME));
             String line;
@@ -24,22 +24,19 @@ public class MemberListFH implements FileReader {
                 int age = Integer.parseInt(data[2]);
                 MembershipType membershipType = MembershipType.valueOf(data[3]);
                 AgeType ageType = AgeType.valueOf(data[4]);
-                PlayerType playerType=PlayerType.valueOf(data[5]);
+                PlayerType playerType = PlayerType.valueOf(data[5]);
 
 
-                members.add(new Member (id,name,age,membershipType,playerType,ageType));
+                members.add(new Member(id, name, age, membershipType, playerType, ageType));
             }
         } catch (IOException e) {
-            System.out.println("Fejl");
+            System.out.println("readFile Fejl");
         }
         return members;
     }
 
-    public writeToFile() {
-    }
 
-    @Override
-    public String saveToFile() {
+    public void saveToFile() {
 
     }
 }
