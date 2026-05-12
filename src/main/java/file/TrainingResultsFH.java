@@ -2,7 +2,7 @@ package file;
 
 import java.util.ArrayList;
 
-public class TrainingResultsFH implements Filehandler {
+public class TrainingResultsFH implements FileReader {
     private static String FILE_NAME = "src/main/java/file/CSVFile/TrainingResults.csv";
 
     @Override
