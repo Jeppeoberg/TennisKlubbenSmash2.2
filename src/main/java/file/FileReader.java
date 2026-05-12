@@ -2,8 +2,8 @@ package file;
 
 import java.util.ArrayList;
 
-public interface Filehandler {
-    void saveToFile();
+public interface FileReader {
+    String saveToFile();
     ArrayList readFile();
 
 }

@@ -19,7 +19,7 @@ public class Payment {
         return memberId;
     }
 
-    public double getAmount() {
+    public double getAnnualFee() {
         return annualFee;
     }
 

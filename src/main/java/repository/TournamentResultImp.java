@@ -19,4 +19,6 @@ public class TournamentResultImp implements TournamentRepository {
     public List<TournamentResult> getAllTournamentResults() {
         return tournamentResults;
     }
+
+
 }
