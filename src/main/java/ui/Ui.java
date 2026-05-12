@@ -1,26 +1,41 @@
 package ui;
 
 import file.MemberListFH;
+import file.PaymentListFH;
+import file.TournamentResultsFH;
+import file.TrainingResultsFH;
 import model.Member;
+import model.Payment;
+import model.TournamentResult;
+import model.TrainingResult;
 import model.enums.AgeType;
 import model.enums.MembershipType;
 import model.enums.PlayerType;
 import model.enums.Discipline;
 import repository.MemberRepositoryImp;
+import repository.PaymentRepositoryImp;
+import repository.TournamentRepositoryImp;
+import repository.TrainingRepositoryImp;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Ui {
 
     private Scanner scanner = new Scanner(System.in);
     private MemberListFH memberListFH = new MemberListFH();
+    private PaymentListFH paymentListFH = new PaymentListFH();
+    private TournamentResultsFH tournamentResultsFH = new TournamentResultsFH();
+    private TrainingResultsFH trainingResultsFH = new TrainingResultsFH();
     private MemberRepositoryImp memberRepository = new MemberRepositoryImp();
+    private PaymentRepositoryImp paymentRepository = new PaymentRepositoryImp();
+    private TournamentRepositoryImp tournamentRepository = new TournamentRepositoryImp();
+    private TrainingRepositoryImp trainingRepository = new TrainingRepositoryImp();
+
     private int memberID = 1;
 
     public void start() {
-        addMembersFromFile();
+        addDataFromFile();
         boolean running = true;
 
         while (running) {
@@ -28,7 +43,10 @@ public class Ui {
             System.out.println("\n....SMASH TENNISKLUB....");
             System.out.println("1. Create member");
             System.out.println("2. Show Members");
-            System.out.println("3. Exit");
+            System.out.println("3. Show Payments");
+            System.out.println("4. Show Tournament Results");
+            System.out.println("5. Show Training Results");
+            System.out.println("6. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -44,6 +62,15 @@ public class Ui {
                     break;
 
                 case 3:
+                    showPayments();
+                    break;
+                case 4:
+                    showTournamentResults();
+                    break;
+                case 5:
+                    showTrainingResults();
+                    break;
+                case 6:
                     running = false;
                     break;
 
@@ -153,12 +180,25 @@ public class Ui {
         System.out.println("\nMember created!");
     }
 
-    public void addMembersFromFile() {
+    public void addDataFromFile() {
         ArrayList<Member> members = memberListFH.readFile();
         for (Member member : members) {
             memberRepository.addMember(member);
             memberID++;
         }
+        ArrayList<Payment> payments = paymentListFH.readFile();
+        for (Payment payment : payments) {
+            paymentRepository.addPayment(payment);
+        }
+        ArrayList<TournamentResult> tournamentResults = tournamentResultsFH.readFile();
+        for (TournamentResult tournamentResult : tournamentResults) {
+            tournamentRepository.addTournamentResult(tournamentResult);
+        }
+        ArrayList<TrainingResult> trainingResults = trainingResultsFH.readFile();
+        for (TrainingResult trainingResult : trainingResults) {
+            trainingRepository.addTrainingResult(trainingResult);
+        }
+
     }
 
     public void showMembers() {
@@ -166,6 +206,33 @@ public class Ui {
 
         for (Member member : memberRepository.getAllMembers()) {
             System.out.println(member);
+        }
+
+    }
+
+    public void showPayments() {
+        System.out.println("\n....Payments....");
+
+        for (Payment payment : paymentRepository.getAllPayments()) {
+            System.out.println(payment);
+        }
+
+    }
+
+    public void showTournamentResults() {
+        System.out.println("\n....Tournament Results....");
+
+        for (TournamentResult tournamentResult : tournamentRepository.getAllTournamentResults()) {
+            System.out.println(tournamentResult);
+        }
+
+    }
+
+    public void showTrainingResults() {
+        System.out.println("\n....Training Results....");
+
+        for (TrainingResult trainingResult : trainingRepository.getAllTrainingResults()) {
+            System.out.println(trainingResult);
         }
 
     }

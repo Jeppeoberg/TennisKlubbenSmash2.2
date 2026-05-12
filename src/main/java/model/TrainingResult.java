@@ -2,16 +2,20 @@ package model;
 
 import model.enums.Discipline;
 
+import java.time.LocalDate;
+
 public class TrainingResult {
 
     private int memberId;
     private Discipline discipline;
     private double result;
+    private LocalDate localDate;
 
-    public TrainingResult(int memberId, Discipline discipline, double result) {
+    public TrainingResult(int memberId, Discipline discipline, double result, LocalDate localDate) {
         this.memberId = memberId;
         this.discipline = discipline;
         this.result = result;
+        this.localDate = localDate;
     }
 
     public int getMemberId() {
@@ -28,6 +32,6 @@ public class TrainingResult {
 
     @Override
     public String toString() {
-        return memberId + " " + discipline + " " + result;
+        return memberId + " " + discipline + " " + result+" "+localDate;
     }
 }

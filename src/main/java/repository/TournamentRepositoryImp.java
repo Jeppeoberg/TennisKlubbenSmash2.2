@@ -6,7 +6,7 @@ import repository.interfaces.TournamentRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TournamentResultImp implements TournamentRepository {
+public class TournamentRepositoryImp implements TournamentRepository {
 
     private List<TournamentResult> tournamentResults = new ArrayList<>();
 
