@@ -1,7 +1,6 @@
 package file;
 
-import model.Payment;
-import model.enums.PaymentStatus;
+import model.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +10,7 @@ public class PaymentListFH implements FileReader {
     private static String FILE_NAME = "src/main/java/file/CSVFile/PaymentOverview.csv";
 
     @Override
-    public ArrayList readFile() {
+    public readFile(ArrayList) {
         ArrayList<Payment> payments = new ArrayList<Payment>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(FILE_NAME));

@@ -9,6 +9,7 @@ import model.enums.PlayerType;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.*;
 
 public class TournamentResultsFH implements FileReader {
 
