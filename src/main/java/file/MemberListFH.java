@@ -17,7 +17,7 @@ public class MemberListFH implements FileReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                int id = Integer.parseInt(data[0]);
+                String memberId = data[0];
                 String name = data[1];
                 int age = Integer.parseInt(data[2]);
                 MembershipType membershipType = MembershipType.valueOf(data[3]);
@@ -25,7 +25,7 @@ public class MemberListFH implements FileReader {
                 PlayerType playerType = PlayerType.valueOf(data[5]);
 
 
-                members.add(new Member(id, name, age, membershipType, playerType, ageType));
+                members.add(new Member(memberId, name, age, membershipType, playerType, ageType));
             }
         } catch (IOException e) {
             System.out.println("readFile Fejl");

@@ -19,13 +19,13 @@ public class TournamentResultsFH implements FileReader { //
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                int id = Integer.parseInt(data[0]);
+                String memberId = data[0];
                 String tournamentName = data[1];
                 int ranking = Integer.parseInt(data[2]);
                 String matchResult = data[3];
 
 
-                tournamentResults.add(new TournamentResult(id, tournamentName, ranking, matchResult));
+                tournamentResults.add(new TournamentResult(memberId, tournamentName, ranking, matchResult));
             }
 
         } catch (IOException e) {

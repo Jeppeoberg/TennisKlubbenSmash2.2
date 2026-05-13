@@ -24,13 +24,13 @@ public class TrainingResultsFH implements FileReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                int id = Integer.parseInt(data[0]);
+                String memberId = data[0];
                 Discipline discipline = Discipline.valueOf(data[1]);
                 int bestResult = Integer.parseInt(data[2]);
                 LocalDate date = LocalDate.parse(data[3]);
 
 
-                trainingResults.add(new TrainingResult(id, discipline, bestResult, date));
+                trainingResults.add(new TrainingResult(memberId, discipline, bestResult, date));
             }
         } catch (IOException e) {
             System.out.println("readFile Fejl");

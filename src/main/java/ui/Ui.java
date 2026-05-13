@@ -17,13 +17,15 @@ import repository.PaymentRepositoryImp;
 import repository.TournamentRepositoryImp;
 import repository.TrainingRepositoryImp;
 import util.Validation.InvalidAgeValidator;
+import util.TrainingResultComparator;
+import util.TournamentResultComparator;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ui { //
+public class Ui {
 
     private Scanner scanner = new Scanner(System.in);
     private MemberListFH memberListFH = new MemberListFH();
@@ -37,7 +39,6 @@ public class Ui { //
 
     private int memberID = 1;
 
-
     public void start() {
         addDataFromFile();
         boolean running = true;
@@ -50,7 +51,9 @@ public class Ui { //
             System.out.println("3. Show Payments");
             System.out.println("4. Show Tournament Results");
             System.out.println("5. Show Training Results");
-            System.out.println("6. Exit");
+            System.out.println("6. Show Top 5 Training Results");
+            System.out.println("7. Show Top 5 Tournament Results");
+            System.out.println("8. Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -75,6 +78,12 @@ public class Ui { //
                     showTrainingResults();
                     break;
                 case 6:
+                    showTop5TrainingResults();
+                    break;
+                case 7:
+                    showTop5TournamentResults();
+                    break;
+                case 8:
                     running = false;
                     break;
 
@@ -138,7 +147,7 @@ public class Ui { //
         }
 
 
-        Member member = new Member(memberID, name, age, membershipType, playerType, ageType);
+        Member member = new Member(String.format("%04d", memberID++), name, age, membershipType, playerType, ageType);
 
         if (playerType == PlayerType.COMPETITION) {
 
@@ -181,7 +190,7 @@ public class Ui { //
 
 
         memberRepository.addMember(member);
-        memberID++;
+        //memberID++;
         memberListFH.saveToFile(member);
 
         System.out.println("\nMember created!");
@@ -252,6 +261,46 @@ public class Ui { //
             System.out.println(trainingResult);
         }
 
+    }
+
+    public void showTop5TrainingResults() {
+
+        ArrayList<TrainingResult> results = new ArrayList<>(trainingRepository.getAllTrainingResults());
+
+        results.sort(new TrainingResultComparator());
+
+        System.out.println("\n...TOP 5 TRAINING RESULTS...");
+
+        for (int i = 0; i < 5 && i < results.size(); i++) {
+
+            TrainingResult result = results.get(i);
+
+            Member member = memberRepository.findMemberById(result.getMemberId());
+
+            if (member != null) {
+                System.out.println(member.getName() + " " + result.getDiscipline() + " " + result.getResult());
+            }
+        }
+    }
+
+    public void showTop5TournamentResults() {
+
+        ArrayList<TournamentResult> results = new ArrayList<>(tournamentRepository.getAllTournamentResults());
+
+        results.sort(new TournamentResultComparator());
+
+        System.out.println("\n...TOP 5 TOURNAMENT RESULTS...");
+
+        for (int i = 0; i < 5 && i < results.size(); i++) {
+
+            TournamentResult result = results.get(i);
+
+            Member member = memberRepository.findMemberById(result.getMemberId());
+
+            if (member != null) {
+                System.out.println(member.getName() + " " + result.getTournamentName() + " " + result.getRanking() + " " + result.getMatchResult());
+            }
+        }
     }
 }
 

@@ -6,19 +6,19 @@ import java.time.LocalDate;
 
 public class TrainingResult {
 
-    private int memberId;
+    private String memberId;
     private Discipline discipline;
     private double result;
     private LocalDate localDate;
 
-    public TrainingResult(int memberId, Discipline discipline, double result, LocalDate localDate) {
+    public TrainingResult(String memberId, Discipline discipline, double result, LocalDate localDate) {
         this.memberId = memberId;
         this.discipline = discipline;
         this.result = result;
         this.localDate = localDate;
     }
 
-    public int getMemberId() {
+    public String getMemberId() {
         return memberId;
     }
 

@@ -3,13 +3,13 @@ package model;
 import java.time.LocalDate;
 
 public class TournamentResult {
-    private int memberId;
+    private String memberId;
     private String tournamentName;
     private int ranking;
     private String matchResult;
 
 
-    public TournamentResult(int memberId, String tournamentName, int ranking, String matchResult){
+    public TournamentResult(String memberId, String tournamentName, int ranking, String matchResult){
         this.memberId=memberId;
         this.tournamentName=tournamentName;
         this.ranking=ranking;
@@ -20,7 +20,7 @@ public class TournamentResult {
         return this.tournamentName;
     }
 
-    public int getMemberId() {
+    public String getMemberId() {
         return this.memberId;
     }
 

@@ -8,9 +8,9 @@ import model.enums.PlayerType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Member { //
+public class Member {
 
-    private int memberId;
+    private String memberId;
     private static int nextId = 1;
     private String name;
     private int age;
@@ -22,7 +22,7 @@ public class Member { //
     private TrainingResult trainingResult;
 
 
-    public Member(int memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
+    public Member(String memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
 
         this.memberId = memberId;
         this.name = name;
@@ -39,6 +39,7 @@ public class Member { //
         this.disciplines.add(discipline);
     }
 
+    public String getMemberId() {
     public void setTournamentResult(TournamentResult tournamentResult) {
         this.tournamentResult = tournamentResult;
     }
