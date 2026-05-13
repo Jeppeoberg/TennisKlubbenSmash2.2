@@ -39,59 +39,59 @@ public class Member {
         this.disciplines.add(discipline);
     }
 
-    public String getMemberId() {
-    public void setTournamentResult(TournamentResult tournamentResult) {
-        this.tournamentResult = tournamentResult;
-    }
 
-    public void setTrainingResult(TrainingResult trainingResult) {
-        this.trainingResult = trainingResult;
-    }
-
-    public void setAgeType(AgeType ageType) {
-        this.ageType = ageType;
-    }
-
-    public AgeType getAgeType() {
-        return ageType;
-    }
-
-    public int getMemberId() {
-        return memberId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public MembershipType getMembershipType() {
-        return membershipType;
-    }
-
-    public PlayerType getPlayerType() {
-        return playerType;
-    }
-
-    public List<Discipline> getDiscipline() {
-        return disciplines;
-    }
-
-    @Override
-    public String toString() {
-        String string = memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines;
-        if (this.tournamentResult != null) {
-            string += " \n    Tournament Results " + tournamentResult;
-        }
-        if (this.trainingResult != null) {
-            string += " \n    Training Results " + trainingResult;
+        public void setTournamentResult (TournamentResult tournamentResult){
+            this.tournamentResult = tournamentResult;
         }
 
-        return string;
+        public void setTrainingResult (TrainingResult trainingResult){
+            this.trainingResult = trainingResult;
+        }
+
+        public void setAgeType (AgeType ageType){
+            this.ageType = ageType;
+        }
+
+        public AgeType getAgeType () {
+            return ageType;
+        }
+
+        public String getMemberId () {
+            return memberId;
+        }
+
+        public String getName () {
+            return name;
+        }
+
+        public int getAge () {
+            return age;
+        }
+
+        public MembershipType getMembershipType () {
+            return membershipType;
+        }
+
+        public PlayerType getPlayerType () {
+            return playerType;
+        }
+
+        public List<Discipline> getDiscipline () {
+            return disciplines;
+        }
+
+        @Override
+        public String toString () {
+            String string = memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines;
+            if (this.tournamentResult != null) {
+                string += " \n    Tournament Results " + tournamentResult;
+            }
+            if (this.trainingResult != null) {
+                string += " \n    Training Results " + trainingResult;
+            }
+
+            return string;
+        }
     }
 
-}
 

@@ -8,9 +8,12 @@ import model.enums.MembershipType;
 import model.enums.PlayerType;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
 import model.*;
 
 public class TrainingResultsFH implements FileReader {
@@ -38,8 +41,19 @@ public class TrainingResultsFH implements FileReader {
         return trainingResults;
     }
 
-    public void saveToFile() {
+    public void saveToFile(Member member) {
 
+        try
+                (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+
+
+            writer.write(member.getMemberId() + "," + member.getName() + "," + member.getAge() + "," + member.getMembershipType() + "," + member.getAgeType() + "," + member.getPlayerType());
+
+            writer.newLine();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
