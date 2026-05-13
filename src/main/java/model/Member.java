@@ -73,7 +73,15 @@ public class Member {
 
     @Override
     public String toString() {
-        return memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines+ " \n    Tournament Result: " + tournamentResult + " \n    Training Result: "+trainingResult;
+        String string = memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines;
+        if (this.tournamentResult != null) {
+            string += " \n    Tournament Results " + tournamentResult;
+        }
+        if (this.trainingResult != null) {
+            string += " \n    Training Results " + trainingResult;
+        }
+
+        return string;
     }
 
 }
