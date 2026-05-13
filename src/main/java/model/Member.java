@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Member {
 
-    private int memberId;
+    private String memberId;
     private static int nextId = 1;
     private String name;
     private int age;
@@ -19,7 +19,7 @@ public class Member {
     private AgeType ageType;
     private ArrayList<Discipline> disciplines;
 
-    public Member(int memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
+    public Member(String memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
 
         this.memberId = memberId;
         this.name = name;
@@ -34,7 +34,7 @@ public class Member {
         this.disciplines.add(discipline);
     }
 
-    public int getMemberId() {
+    public String getMemberId() {
         return memberId;
     }
 

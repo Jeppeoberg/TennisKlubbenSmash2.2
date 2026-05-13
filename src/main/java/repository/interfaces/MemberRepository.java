@@ -8,4 +8,6 @@ public interface MemberRepository {
     void addMember(Member member);
 
     List<Member> getAllMembers();
+
+    Member findMemberById(String memberId);
 }

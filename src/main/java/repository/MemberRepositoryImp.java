@@ -19,4 +19,15 @@ public class MemberRepositoryImp implements MemberRepository {
     public List<Member> getAllMembers() {
         return members;
     }
+
+    @Override
+    public Member findMemberById(String memberId) {
+
+        for (Member member : members) {
+            if (member.getMemberId().equals(memberId)) {
+                return member;
+            }
+        }
+        return null;
+    }
 }
