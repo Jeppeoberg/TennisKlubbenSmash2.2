@@ -36,7 +36,12 @@ public class MemberListFH implements FileReader {
     }
 
 
-    public void saveToFile() {
+    public String saveToFile(ArrayList<Member> members, String fileName) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new BufferedWriter("Memberlist")) {
 
+
+    }
+}
     }
 }
