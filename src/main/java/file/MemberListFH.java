@@ -1,6 +1,7 @@
 package file;
 
 import model.*;
+import model.enums.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -33,12 +34,15 @@ public class MemberListFH implements FileReader {
     }
 
 
-    public void saveToFile(ArrayList<Member> members, String filePath) {
-        filePath = "Memberlist";
+    public void saveToFile(Member member) {
 
         try
-                (BufferedWriter writer = new BufferedWriter(new FileWriter("Memberlist"))) {
+                (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
 
+
+                writer.write(member.getMemberId() + "," + member.getName() + "," + member.getAge() + "," + member.getMembershipType() + "," + member.getAgeType() + "," + member.getPlayerType());
+
+            writer.newLine();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

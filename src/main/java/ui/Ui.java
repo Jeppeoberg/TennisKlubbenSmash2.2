@@ -180,7 +180,7 @@ public class Ui {
 
         memberRepository.addMember(member);
         memberID++;
-
+        memberListFH.saveToFile(member);
 
         System.out.println("\nMember created!");
     }

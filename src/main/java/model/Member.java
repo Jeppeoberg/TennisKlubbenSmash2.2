@@ -47,6 +47,14 @@ public class Member {
         this.trainingResult = trainingResult;
     }
 
+    public void setAgeType(AgeType ageType) {
+        this.ageType = ageType;
+    }
+
+    public AgeType getAgeType() {
+        return ageType;
+    }
+
     public int getMemberId() {
         return memberId;
     }
