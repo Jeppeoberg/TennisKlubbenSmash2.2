@@ -16,6 +16,7 @@ import repository.MemberRepositoryImp;
 import repository.PaymentRepositoryImp;
 import repository.TournamentRepositoryImp;
 import repository.TrainingRepositoryImp;
+import util.Validation.InvalidAgeValidator;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -99,6 +100,7 @@ public class Ui { //
         } else {
             ageType = AgeType.OVER65;
         }
+        InvalidAgeValidator.validate(age);
 
         System.out.println("1. Active");
         System.out.println("2. Passive");
