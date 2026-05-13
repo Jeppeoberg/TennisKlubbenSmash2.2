@@ -1,16 +1,12 @@
 package file;
 
-import model.Member;
-import model.TournamentResult;
-import model.enums.AgeType;
-import model.enums.MembershipType;
-import model.enums.PlayerType;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.*;
+import model.enums.*;
 
-public class TournamentResultsFH implements FileReader {
+public class TournamentResultsFH implements FileReader { //
 
     private static String FILE_NAME = "src/main/java/file/CSVFile/TournamentResults.csv";
 

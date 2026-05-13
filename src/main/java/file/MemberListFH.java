@@ -1,9 +1,7 @@
 package file;
 
-import model.Member;
-import model.enums.AgeType;
-import model.enums.MembershipType;
-import model.enums.PlayerType;
+import model.*;
+import model.enums.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ public class MemberListFH implements FileReader {
     private static String FILE_NAME = "src/main/java/file/CSVFile/Memberlist.csv";
 
     @Override
-    public ArrayList readFile() {
+    public ArrayList readFile() { //
         ArrayList<Member> members = new ArrayList<Member>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(FILE_NAME));
@@ -36,7 +34,18 @@ public class MemberListFH implements FileReader {
     }
 
 
-    public void saveToFile() {
+    public void saveToFile(Member member) {
 
+        try
+                (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+
+
+                writer.write(member.getMemberId() + "," + member.getName() + "," + member.getAge() + "," + member.getMembershipType() + "," + member.getAgeType() + "," + member.getPlayerType());
+
+            writer.newLine();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

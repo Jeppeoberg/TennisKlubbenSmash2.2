@@ -17,10 +17,12 @@ import repository.PaymentRepositoryImp;
 import repository.TournamentRepositoryImp;
 import repository.TrainingRepositoryImp;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ui {
+public class Ui { //
 
     private Scanner scanner = new Scanner(System.in);
     private MemberListFH memberListFH = new MemberListFH();
@@ -33,6 +35,7 @@ public class Ui {
     private TrainingRepositoryImp trainingRepository = new TrainingRepositoryImp();
 
     private int memberID = 1;
+
 
     public void start() {
         addDataFromFile();
@@ -177,7 +180,7 @@ public class Ui {
 
         memberRepository.addMember(member);
         memberID++;
-
+        memberListFH.saveToFile(member);
 
         System.out.println("\nMember created!");
     }

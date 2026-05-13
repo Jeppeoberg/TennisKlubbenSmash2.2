@@ -8,7 +8,7 @@ import model.enums.PlayerType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Member {
+public class Member { //
 
     private int memberId;
     private static int nextId = 1;
@@ -45,6 +45,14 @@ public class Member {
 
     public void setTrainingResult(TrainingResult trainingResult) {
         this.trainingResult = trainingResult;
+    }
+
+    public void setAgeType(AgeType ageType) {
+        this.ageType = ageType;
+    }
+
+    public AgeType getAgeType() {
+        return ageType;
     }
 
     public int getMemberId() {
