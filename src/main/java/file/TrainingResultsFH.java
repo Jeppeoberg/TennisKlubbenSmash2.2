@@ -17,7 +17,7 @@ public class TrainingResultsFH implements FileReader {
     private static String FILE_NAME = "src/main/java/file/CSVFile/TrainingResults.csv";
 
     @Override
-    public ArrayList readFile() {
+    public ArrayList readFile() { //
         ArrayList<TrainingResult> trainingResults = new ArrayList<TrainingResult>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(FILE_NAME));

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.*;
 import model.enums.*;
 
-public class TournamentResultsFH implements FileReader {
+public class TournamentResultsFH implements FileReader { //
 
     private static String FILE_NAME = "src/main/java/file/CSVFile/TournamentResults.csv";
 

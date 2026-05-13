@@ -22,7 +22,7 @@ import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Ui {
+public class Ui { //
 
     private Scanner scanner = new Scanner(System.in);
     private MemberListFH memberListFH = new MemberListFH();

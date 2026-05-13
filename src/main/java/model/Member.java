@@ -8,7 +8,7 @@ import model.enums.PlayerType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Member {
+public class Member { //
 
     private int memberId;
     private static int nextId = 1;

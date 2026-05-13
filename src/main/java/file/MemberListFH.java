@@ -10,7 +10,7 @@ public class MemberListFH implements FileReader {
     private static String FILE_NAME = "src/main/java/file/CSVFile/Memberlist.csv";
 
     @Override
-    public ArrayList readFile() {
+    public ArrayList readFile() { //
         ArrayList<Member> members = new ArrayList<Member>();
         try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(FILE_NAME));
