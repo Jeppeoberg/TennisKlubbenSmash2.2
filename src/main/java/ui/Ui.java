@@ -174,18 +174,15 @@ public class Ui {
             }
         }
 
+
         memberRepository.addMember(member);
+        memberID++;
 
 
         System.out.println("\nMember created!");
     }
 
     public void addDataFromFile() {
-        ArrayList<Member> members = memberListFH.readFile();
-        for (Member member : members) {
-            memberRepository.addMember(member);
-            memberID++;
-        }
         ArrayList<Payment> payments = paymentListFH.readFile();
         for (Payment payment : payments) {
             paymentRepository.addPayment(payment);
@@ -198,7 +195,22 @@ public class Ui {
         for (TrainingResult trainingResult : trainingResults) {
             trainingRepository.addTrainingResult(trainingResult);
         }
+        ArrayList<Member> members = memberListFH.readFile();
+        for (Member member : members) {
+            if (member.getPlayerType() == PlayerType.COMPETITION) {
+                for (TournamentResult tournament : tournamentRepository.getAllTournamentResults())
+                    if (tournament.getMemberId() == member.getMemberId()) {
+                        member.setTournamentResult(tournament);
+                    }
+                for (TrainingResult training : trainingRepository.getAllTrainingResults())
+                    if (training.getMemberId() == member.getMemberId()) {
+                        member.setTrainingResult(training);
+                    }
+            }
+            memberRepository.addMember(member);
+            memberID++;
 
+        }
     }
 
     public void showMembers() {

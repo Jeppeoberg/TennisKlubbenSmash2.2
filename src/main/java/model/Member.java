@@ -18,6 +18,9 @@ public class Member {
     private PlayerType playerType;
     private AgeType ageType;
     private ArrayList<Discipline> disciplines;
+    private TournamentResult tournamentResult;
+    private TrainingResult trainingResult;
+
 
     public Member(int memberId, String name, int age, MembershipType membershipType, PlayerType playerType, AgeType ageType) {
 
@@ -28,10 +31,20 @@ public class Member {
         this.playerType = playerType;
         this.ageType = ageType;
         this.disciplines = new ArrayList<>();
+        this.tournamentResult = null;
+        this.trainingResult = null;
     }
 
-    public void addDisciplines(Discipline discipline){
+    public void addDisciplines(Discipline discipline) {
         this.disciplines.add(discipline);
+    }
+
+    public void setTournamentResult(TournamentResult tournamentResult) {
+        this.tournamentResult = tournamentResult;
+    }
+
+    public void setTrainingResult(TrainingResult trainingResult) {
+        this.trainingResult = trainingResult;
     }
 
     public int getMemberId() {
@@ -60,7 +73,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines;
+        return memberId + " " + name + " " + age + " " + membershipType + " " + playerType + " " + ageType + " " + disciplines+ " \n    Tournament Result: " + tournamentResult + " \n    Training Result: "+trainingResult;
     }
 
 }
